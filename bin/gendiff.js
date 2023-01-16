@@ -9,7 +9,6 @@ program
   .version('0.8.0')
   .arguments('<filepath1> <filepath2>')
   .action((filepath1, filepath2) => {
-    
     console.log(genDiff(filepath1, filepath2));
   });
 
