@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import _ from 'lodash';
+import parser from './parsers.js';
 
 const compareData = (firstData, secondData) => {
   const commonKeys = _.union(Object.keys(firstData), Object.keys(secondData));
@@ -37,20 +38,12 @@ const objToString = (obj) => {
 
 function genDiff(filepath1, filepath2) {
   const firstFile = fs.readFileSync(path.resolve(filepath1), 'utf8');
-  const typeFirstFile = filepath1.split('.')[1];
   const secondFile = fs.readFileSync(path.resolve(filepath2), 'utf8');
-  const typeSecondFile = filepath2.split('.')[1];
 
-  let firstFileData;
-  let secondFileData;
+  const firstFileData = parser(filepath1, firstFile);
+  const secondFileData = parser(filepath2, secondFile);
 
-  if (typeFirstFile === 'json') {
-    firstFileData = JSON.parse(firstFile);
-  }
-
-  if (typeSecondFile === 'json') {
-    secondFileData = JSON.parse(secondFile);
-  }
+  console.log(`1${path.resolve(filepath1)}  2${path.resolve(filepath2)}`);
 
   const compareResult = compareData(firstFileData, secondFileData);
 
