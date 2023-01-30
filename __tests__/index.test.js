@@ -1,19 +1,21 @@
 import fs from 'fs';
 import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
-import genDiff from '../index.js';
+import genDiff from '../src/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
-const result = readFile('resultCompare').trim();
+const expectedResult = readFile('correct-result').trim();
+const extensions = ['json', 'yaml', 'yml'];
 
-test('comparison of flat json files', () => {
-  expect(genDiff(getFixturePath('testfile1.json'), getFixturePath('testfile2.json'))).toEqual(result);
-});
+describe('Positive testcases', () => {
+  test.each(extensions)('Format %s', (extension) => {
+    const file1 = path.join(process.cwd(), '__fixtures__', `testfile1.${extension}`);
+    const file2 = path.join(process.cwd(), '__fixtures__', `testfile2.${extension}`);
 
-test('comparison of flat yaml files', () => {
-  expect(genDiff(getFixturePath('testfile1.yml'), getFixturePath('testfile2.yml'))).toEqual(result);
+    expect(genDiff(file1, file2)).toEqual(expectedResult);
+  });
 });

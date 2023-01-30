@@ -11,6 +11,5 @@ export default function parser(filepath, data) {
     parse = yaml.load;
   }
 
-  console.log(data);
   return parse(data);
 }
