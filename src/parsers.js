@@ -3,13 +3,13 @@ import yaml from 'js-yaml';
 
 export default function parser(filepath, data) {
   const typeFile = path.extname(filepath);
-  let parse = null;
 
   if (typeFile === '' || typeFile === '.json') {
-    parse = JSON.parse;
-  } else if (typeFile === '.yml' || typeFile === '.yaml') {
-    parse = yaml.load;
+    return JSON.parse(data);
+  }
+  if (typeFile === '.yml' || typeFile === '.yaml') {
+    return yaml.load(data);
   }
 
-  return parse(data);
+  throw new Error(`Unknown type ${typeFile}`);
 }
