@@ -6,3 +6,5 @@
 ### Демонстрация работы проекта
 [Демонстрация шага 3. Сравнение плоских json файлов](https://asciinema.org/a/2JXvhxsjiEdYUFkHsM3mKFYeA)
 [Демонстрация шага 5. Сравнение плоских yml файлов](https://asciinema.org/a/xov53eRIXUVvGaiuPXNBgGHFE)
+[Демонстрация шага 6. Рекурсивное сравнение файлов](https://asciinema.org/a/GuCeX1FufvQUZFjSscHdUgltE)
+[Демонстрация шага 7. Плоский формат вывода результата]( https://asciinema.org/a/D0mM2iquJe3IJzMWiYhrhNwEv)

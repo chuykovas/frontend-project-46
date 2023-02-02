@@ -8,7 +8,10 @@ const __dirname = dirname(__filename);
 
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
-const expectedResult = readFile('correct-result').trim();
+const expectedStylish = readFile('correction-stylish.txt').trim();
+const expectedPlain = readFile('correction-plain.txt').trim();
+
+
 const extensions = ['json', 'yaml', 'yml'];
 
 describe('Positive testcases', () => {
@@ -16,6 +19,7 @@ describe('Positive testcases', () => {
     const file1 = path.join(process.cwd(), '__fixtures__', `testfile1.${extension}`);
     const file2 = path.join(process.cwd(), '__fixtures__', `testfile2.${extension}`);
 
-    expect(genDiff(file1, file2)).toEqual(expectedResult);
+    expect(genDiff(file1, file2, 'stylish')).toEqual(expectedStylish);
+    expect(genDiff(file1, file2, 'plain')).toEqual(expectedPlain);
   });
 });
