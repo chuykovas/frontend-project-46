@@ -10,6 +10,7 @@ const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', 
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 const expectedStylish = readFile('correction-stylish.txt').trim();
 const expectedPlain = readFile('correction-plain.txt').trim();
+const expectedJson = readFile('correction-json.txt').trim();
 
 
 const extensions = ['json', 'yaml', 'yml'];
@@ -21,5 +22,6 @@ describe('Positive testcases', () => {
 
     expect(genDiff(file1, file2, 'stylish')).toEqual(expectedStylish);
     expect(genDiff(file1, file2, 'plain')).toEqual(expectedPlain);
+    expect(genDiff(file1, file2, 'json')).toEqual(expectedJson);
   });
 });
