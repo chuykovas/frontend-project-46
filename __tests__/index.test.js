@@ -12,7 +12,6 @@ const expectedStylish = readFile('correction-stylish.txt').trim();
 const expectedPlain = readFile('correction-plain.txt').trim();
 const expectedJson = readFile('correction-json.txt').trim();
 
-
 const extensions = ['json', 'yaml', 'yml'];
 
 describe('Positive testcases', () => {
