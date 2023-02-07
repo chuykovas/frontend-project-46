@@ -13,13 +13,13 @@ Report generation in the form of plain text, stylish and json.
 
 ## Install:
 1. Make sure you have installed [Node.js](https://nodejs.org/en/) no lower version 12: ```node -v```.
-2. Clone repository: ```git@github.com:pterodactylsam/frontend-project-lvl2.git```.
-3. Change directory to frontend-project-lvl2
+2. Clone repository: ```git@github.com:chuykovas/project-gendiff.git```.
+3. Change directory to project-gendiff
 4. Run the command: ```make install```.
 
 ```shell
-$ git clone git@github.com:pterodactylsam/frontend-project-lvl2.git
-$ cd frontend-project-lvl2
+$ git clone git@github.com:chuykovas/project-gendiff.git
+$ cd project-gendiff
 $ make install
 ```
 
